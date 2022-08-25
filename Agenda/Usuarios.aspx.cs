@@ -13,5 +13,10 @@ namespace Agenda
         {
 
         }
+
+        protected void listUsuarios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

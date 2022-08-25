@@ -9,8 +9,9 @@
    
 
         <LayoutTemplate>
-          <table cellpadding="2" width="640px" border="1" runat="server" id="tblProducts">
+          <table cellpadding="10" cellspacing="0" width="100%" border="0" runat="server" id="tblProducts">
             <tr runat="server">
+              <th runat="server"></th>
               <th runat="server">Id</th>
               <th runat="server">Nome</th>
               <th runat="server">Email</th>
@@ -30,8 +31,12 @@
 
 
         <ItemTemplate>
-          <tr runat="server">
-            <td>
+          <tr runat="server" style="border-bottom:1px solid #ccc; padding:10">
+                <td>
+                    <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Excluir" />
+                    <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Editar" />
+                </td>
+              <td>
               <asp:Label ID="nomeUser" runat="Server" Text='<%#Eval("[NomeUsuario]") %>' />
             </td>
             <td>
@@ -50,13 +55,19 @@
               <asp:LinkButton ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
             </td>
             <td>
-              <asp:TextBox ID="FirstNameTextBox" runat="server" Text='<%#Bind("FirstName") %>' 
+              <asp:TextBox ID="FirstNameTextBox" runat="server" Text='<%#Bind("NomeUsuario") %>' 
                 MaxLength="50" /><br />
             </td>
             <td>
-              <asp:TextBox ID="LastNameTextBox" runat="server" Text='<%#Bind("LastName") %>' 
+              <asp:TextBox ID="LastNameTextBox" runat="server" Text='<%#Bind("Email") %>' 
                 MaxLength="50" /><br />
             </td>
+
+            <td>
+              <asp:TextBox ID="TextBox1" runat="server" Text='<%#Bind("UsuarioAtivo") %>' 
+                MaxLength="50" /><br />
+            </td>
+
           </tr>
         </EditItemTemplate>
 
@@ -64,7 +75,28 @@
    
 
 
-     <asp:SqlDataSource runat="server" ID="SqlDataSourceUsuarios" ConnectionString="<%$ ConnectionStrings:ProdutosDbConnectionString %>" SelectCommand="SELECT [UserId], [NomeUsuario], [Email], [Senha], [UsuarioAtivo] FROM [Users]"></asp:SqlDataSource>
+    <asp:SqlDataSource 
+        runat="server" ID="SqlDataSourceUsuarios" 
+        ConnectionString="<%$ ConnectionStrings:ProdutosDbConnectionString %>" 
+        SelectCommand="SELECT [UserId], [NomeUsuario], [Email], [UsuarioAtivo] FROM [Users]" 
+        DeleteCommand="DELETE FROM [Users] WHERE [UserId] = @Email" 
+        UpdateCommand="UPDATE [Users] SET [NomeUsuario] = @NomeUsuario, [Email] = @Email, [UsuarioAtivo] = @UsuarioAtivo WHERE [Email] = @Email">
+    
+        <DeleteParameters>
+            <asp:Parameter Name="Email" Type="String" />
+        </DeleteParameters>
+        <InsertParameters>
+            <asp:Parameter Name="Email" Type="String" />
+            <asp:Parameter Name="NomeUsuario" Type="String" />
+            <asp:Parameter Name="UsuarioAtivo" Type="String" />
+        </InsertParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="Email" Type="String" />
+            <asp:Parameter Name="NomeUsuario" Type="String" />
+            <asp:Parameter Name="UsuarioAtivo" Type="String" />
+        </UpdateParameters>
+    
+    </asp:SqlDataSource>
 
 
 
