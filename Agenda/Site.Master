@@ -129,7 +129,7 @@
                                 <li class="active"><a href="/Home/Index"><i class="icon-home4"></i> <span>Sair</span></a></li>
             
                                 <li>
-                                    <a href="#"><i class="icon-stack2"></i><span>Cadastro</span></a>
+                                    <a href="#"><i class="icon-stack2"></i><span>Gerenciar</span></a>
                                     <ul>
                                         <li><a href="/Usuarios">Usuário</a></li>
                                     </ul>
@@ -138,16 +138,11 @@
                                         <li><a href="/Home/CadUsuario">Contato</a></li>
                                     </ul>
 
-                                </li>
-
-                                <li>
-                                    <a href="#"><i class="icon-stack2"></i> <span>Relatórios</span></a>
                                     <ul>
-                                        <li onclick="carregaListaDeUsuarios()"><a href="/Home/RelUsuarios">Usuarios</a></li>
+                                        <li><a href="/Produtos">Produtos</a></li>
                                     </ul>
+
                                 </li>
-
-
 
 
                             </ul>

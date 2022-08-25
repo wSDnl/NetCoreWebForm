@@ -2,11 +2,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h1>Usuarios</h1>
 
-    <asp:ListView ID="listUsuarios" runat="server" DataSourceID="SqlDataSourceUsuarios">
+    <asp:ListView 
+        ID="listUsuarios" 
+        runat="server" 
+        DataSourceID="SqlDataSourceUsuarios" 
+        OnSelectedIndexChanged="listUsuarios_SelectedIndexChanged">
 
-
-
-   
 
         <LayoutTemplate>
           <table cellpadding="10" cellspacing="0" width="100%" border="0" runat="server" id="tblProducts">
@@ -56,11 +57,11 @@
             </td>
             <td>
               <asp:TextBox ID="FirstNameTextBox" runat="server" Text='<%#Bind("NomeUsuario") %>' 
-                MaxLength="50" /><br />
+                MaxLength="100" /><br />
             </td>
             <td>
               <asp:TextBox ID="LastNameTextBox" runat="server" Text='<%#Bind("Email") %>' 
-                MaxLength="50" /><br />
+                MaxLength="100" /><br />
             </td>
 
             <td>
