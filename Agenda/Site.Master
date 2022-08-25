@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - Meu aplicativo ASP.NET</title>
+    <title><%: Page.Title %> Agenda</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -123,16 +123,21 @@
                         <div class="category-content no-padding">
                             <ul class="navigation navigation-main navigation-accordion">
                                 <!-- Main -->
-                                <li class="navigation-header"><span>Main</span> <i class="icon-menu" title="MENU"></i></li>
+                              
+                                <li class="navigation-header"><span>Main</span> <i class="icon-menu" title="MENU"></i></li>                               
                                 <li class="active"><a href="/Home/Index"><i class="icon-home4"></i> <span>Inicio</span></a></li>
-                                <li class="active"><a href="/Home/API_PrevTempo"><i class="icon-soundcloud"></i> <span>Open Weather Map</span></a></li>
-
+                                <li class="active"><a href="/Home/Index"><i class="icon-home4"></i> <span>Sair</span></a></li>
+            
                                 <li>
-                                    <a href="#"><i class="icon-stack2"></i> <span>Cadastros</span></a>
+                                    <a href="#"><i class="icon-stack2"></i><span>Cadastro</span></a>
                                     <ul>
-                                        <li><a href="/Home/CadUsuario">Usuário</a></li>
-                                        <li><a href="/Home/NovoDocumento">NF</a></li>
+                                        <li><a href="/Usuarios">Usuário</a></li>
                                     </ul>
+
+                                    <ul>
+                                        <li><a href="/Home/CadUsuario">Contato</a></li>
+                                    </ul>
+
                                 </li>
 
                                 <li>
@@ -159,19 +164,8 @@
                 <!-- Content area -->
                 <div class="content">
 
-
-                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
-                        Content
-                    </asp:ContentPlaceHolder>
-
-                    <hr />
-
-
-                    <footer>
-                        <p>&copy; <%: DateTime.Now.Year %> - Meu aplicativo ASP.NET</p>
-                    </footer>
-
-
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+                    
                 </div>
                 <!-- /content area -->
 
